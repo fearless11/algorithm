@@ -1,5 +1,10 @@
-{
+{   
+    // plugin：enable spending memory, optionally disable
+
+    // workbench
     "workbench.editor.showTabs": true,
     "workbench.editor.enablePreview": false,
+    
+    // golang
     "go.formatTool": "goimports"
 }
