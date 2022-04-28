@@ -5,10 +5,6 @@ import (
 	"time"
 )
 
-func Search(nums []int, target int) int {
-	return search(nums, target)
-}
-
 // https://leetcode-cn.com/problems/binary-search
 func search(nums []int, target int) int {
 	// 1. set middle pointer
@@ -40,14 +36,9 @@ func search(nums []int, target int) int {
 	return -1
 }
 
-// FirstBadVersion ...
-func FirstBadVersion(n int) int {
-	return firstBadVersion(n)
-}
-
 // https://leetcode-cn.com/problems/first-bad-version/
-// 时间复杂度 O(logn)
-// 空间复杂度 O(log1)
+// time complexity O(logn)
+// space complexity O(log1)
 func firstBadVersion(n int) int {
 	// 1. when exit
 	// 2. move left or right
@@ -73,11 +64,6 @@ func isBadVersion(n int) bool {
 		return true
 	}
 	return false
-}
-
-// SearchInsert ...
-func SearchInsert(nums []int, target int) int {
-	return searchInsert(nums, target)
 }
 
 // https://leetcode-cn.com/problems/search-insert-position/
@@ -106,11 +92,6 @@ func searchInsert(nums []int, target int) int {
 	}
 
 	return tag
-}
-
-// SearchMatrix ...
-func SearchMatrix(matrix [][]int, target int) bool {
-	return searchMatrix(matrix, target)
 }
 
 // https://leetcode-cn.com/problems/search-a-2d-matrix/submissions
