@@ -1,35 +1,12 @@
-package main
+package binarysearch
 
 import (
-	"fmt"
 	"math/rand"
 	"time"
 )
 
-func main() {
-	// search
-	nums := []int{1, 2, 3, 4, 5}
-	target := 5
-	fmt.Printf("result: %v\n", search(nums, target))
-
-	// firstBadVersion
-	n := 5
-	fmt.Println("***firstBadVersion***")
-	fmt.Printf("n: %v,bad: %v\n", n, firstBadVersion(n))
-
-	fmt.Println("***searchInsert***")
-	nums = []int{1, 3, 5, 6}
-	target = 5
-	fmt.Println("nums:", nums)
-	fmt.Println("target:", target)
-	fmt.Println("result:", searchInsert(nums, target))
-
-	fmt.Println("***searchMatrix***")
-	matrix := [][]int{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}}
-	target = 3
-	fmt.Println("matrix:", matrix)
-	fmt.Println("target:", target)
-	fmt.Println("result:", searchMatrix(matrix, target))
+func Search(nums []int, target int) int {
+	return search(nums, target)
 }
 
 // https://leetcode-cn.com/problems/binary-search
@@ -63,6 +40,11 @@ func search(nums []int, target int) int {
 	return -1
 }
 
+// FirstBadVersion ...
+func FirstBadVersion(n int) int {
+	return firstBadVersion(n)
+}
+
 // https://leetcode-cn.com/problems/first-bad-version/
 // 时间复杂度 O(logn)
 // 空间复杂度 O(log1)
@@ -83,7 +65,6 @@ func firstBadVersion(n int) int {
 }
 
 func isBadVersion(n int) bool {
-	// 指定种子数每次产生不同的随机数
 	// min, max := 1, n+1
 	num := n + 10
 	rand.Seed(time.Now().UnixNano())
@@ -92,6 +73,11 @@ func isBadVersion(n int) bool {
 		return true
 	}
 	return false
+}
+
+// SearchInsert ...
+func SearchInsert(nums []int, target int) int {
+	return searchInsert(nums, target)
 }
 
 // https://leetcode-cn.com/problems/search-insert-position/
@@ -120,6 +106,11 @@ func searchInsert(nums []int, target int) int {
 	}
 
 	return tag
+}
+
+// SearchMatrix ...
+func SearchMatrix(matrix [][]int, target int) bool {
+	return searchMatrix(matrix, target)
 }
 
 // https://leetcode-cn.com/problems/search-a-2d-matrix/submissions
