@@ -55,3 +55,23 @@ func TestRotate(t *testing.T) {
 		}
 	}
 }
+
+// go test -v -run TestMoveZeroes
+func TestMoveZeroes(t *testing.T) {
+	var tests = []struct {
+		nums []int
+		want []int
+	}{
+		{nums: []int{1, 0}, want: []int{1, 0}},
+		{nums: []int{2, 1}, want: []int{2, 1}},
+		{nums: []int{0, 1, 0, 3, 12}, want: []int{1, 3, 12, 0, 0}},
+	}
+
+	for _, v := range tests {
+		moveZeroes(v.nums)
+		got := v.nums
+		if !IsEqual(got, v.want) {
+			t.Errorf("moveZeroes(%v) got: %v,wnat: %v", v.nums, got, v.want)
+		}
+	}
+}
