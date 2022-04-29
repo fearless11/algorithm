@@ -64,7 +64,10 @@ func reverse(a []int) {
 }
 
 // https://leetcode-cn.com/problems/move-zeroes/
+// T(n)=O(n) S(n)=O(1)
 func moveZeroes(nums []int) {
+	// 逆向思路：非0时考虑交换，把所有非0的移动到左边，剩下右边都是0
+	// 左右指针都指向开始点，右指针一直移动找非0，非0同时移动，为0是左指针不动，等待右指针找到非0的交换
 	left, right, n := 0, 0, len(nums)
 	for right < n {
 		if nums[right] != 0 {
