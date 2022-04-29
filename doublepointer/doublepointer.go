@@ -74,3 +74,41 @@ func moveZeroes(nums []int) {
 		right++
 	}
 }
+
+// https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/
+func twoSum(numbers []int, target int) []int {
+	return twoSum2(numbers, target)
+}
+
+// T(n)=O(n^2) S(n)=O(1)
+func twoSum1(numbers []int, target int) []int {
+	n := len(numbers)
+	index1, index2 := 0, 0
+	for i := 0; i < n; i++ {
+		for j := i + 1; j < n; j++ {
+			sum := numbers[i] + numbers[j]
+			if sum == target {
+				index1 = i
+				index2 = j
+			}
+		}
+	}
+	return []int{index1 + 1, index2 + 1}
+}
+
+// T(n)=O(n) S(n)=O(1)
+func twoSum2(numbers []int, target int) []int {
+	n := len(numbers)
+	index1, index2 := 0, n-1
+	for index1 <= index2 {
+		sum := numbers[index1] + numbers[index2]
+		if sum > target {
+			index2--
+		} else if sum < target {
+			index1++
+		} else {
+			break
+		}
+	}
+	return []int{index1 + 1, index2 + 1}
+}
