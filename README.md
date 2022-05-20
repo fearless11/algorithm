@@ -72,5 +72,5 @@ for i := 0; i < n; i++ {
 ```
 
 ## leetcode
-- https://leetcode-cn.com/study-plan/algorithms/?progress=nufcu6d
+- https://leetcode.cn/u/fearless11/
 
