@@ -1,23 +1,9 @@
 package doublepointer
 
 import (
+	"leetcode/util"
 	"testing"
 )
-
-func IsEqual(a, b []int) bool {
-	lena := len(a)
-	lenb := len(b)
-	if lena != lenb {
-		return false
-	}
-
-	for i := 0; i < lena; i++ {
-		if a[i] != b[i] {
-			return false
-		}
-	}
-	return true
-}
 
 // go test -v -run TestSortedSquares
 func TestSortedSquares(t *testing.T) {
@@ -31,7 +17,7 @@ func TestSortedSquares(t *testing.T) {
 
 	for _, v := range tests {
 		got := sortedSquares(v.nums)
-		if !IsEqual(got, v.want) {
+		if !util.IsEqual(got, v.want) {
 			t.Errorf("sortedSquares(%v) got: %v,wnat: %v", v.nums, got, v.want)
 		}
 	}
@@ -50,7 +36,7 @@ func TestRotate(t *testing.T) {
 	for _, v := range tests {
 		rotate(v.nums, v.k)
 		got := v.nums
-		if !IsEqual(got, v.want) {
+		if !util.IsEqual(got, v.want) {
 			t.Errorf("rotate(%v,%v) got: %v,wnat: %v", v.nums, v.k, got, v.want)
 		}
 	}
@@ -70,7 +56,7 @@ func TestMoveZeroes(t *testing.T) {
 	for _, v := range tests {
 		moveZeroes(v.nums)
 		got := v.nums
-		if !IsEqual(got, v.want) {
+		if !util.IsEqual(got, v.want) {
 			t.Errorf("moveZeroes(%v) got: %v,wnat: %v", v.nums, got, v.want)
 		}
 	}
@@ -90,7 +76,7 @@ func TestTwoSum(t *testing.T) {
 
 	for _, v := range tests {
 		got := twoSum(v.nums, v.target)
-		if !IsEqual(got, v.want) {
+		if !util.IsEqual(got, v.want) {
 			t.Errorf("twoSum(%v,%v) got: %v,wnat: %v", v.nums, v.target, got, v.want)
 		}
 	}
