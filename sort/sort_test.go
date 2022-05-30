@@ -5,6 +5,32 @@ import (
 	"testing"
 )
 
+// go test -v -run TestBubbleSort -count=1
+func TestBubbleSort(t *testing.T) {
+	var tests = []struct {
+		nums []int
+		want []int
+	}{
+		{
+			nums: []int{2, 3, 1, 0},
+			want: []int{0, 1, 2, 3},
+		},
+		{
+			nums: []int{3, 1, 0},
+			want: []int{0, 1, 3},
+		},
+	}
+
+	for _, v := range tests {
+		nums := make([]int, len(v.nums))
+		copy(nums, v.nums)
+		got := BubbleSort(v.nums)
+		if !util.IsEqual(v.want, got) {
+			t.Errorf("BubbleSort(%v) got: %v,wnat: %v", nums, got, v.want)
+		}
+	}
+}
+
 // go test -v -count 1 -run TestSelectSort
 func TestSelectSort(t *testing.T) {
 	tests := []struct {
@@ -22,7 +48,7 @@ func TestSelectSort(t *testing.T) {
 	}
 
 	for _, v := range tests {
-		got := selectSort(v.nums)
+		got := SelectSort(v.nums)
 		if !util.IsEqual(got, v.want) {
 			t.Errorf("selectSort(%v) got: %v,wnat: %v", v.nums, got, v.want)
 		}
@@ -46,7 +72,7 @@ func TestInsertSort(t *testing.T) {
 	}
 
 	for _, v := range tests {
-		got := insertSort(v.nums)
+		got := InsertSort(v.nums)
 		if !util.IsEqual(got, v.want) {
 			t.Errorf("insertSort(%v) got: %v,wnat: %v", v.nums, got, v.want)
 		}
